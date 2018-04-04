@@ -1,6 +1,7 @@
 ## Tools for "Graph based Bilingual Word Embedding"
 
 Parts of the codes for bilingual co-occurrence graph constructions are from the following paper:
+
 Rui Wang, Hai Zhao, Sabine Ploux, Bao-Liang Lu, and Masao Utiyama. 2016. "A Bilingual Graph-based Semantic Model for Statistical Machine Translation". IJCAI.
 
 Graph-based Bilingual Word Embedding for Statistical Machine Translation
