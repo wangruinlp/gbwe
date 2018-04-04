@@ -1,0 +1,178 @@
+Votre requ�te �tait : <B>work_e </B> <BR>
+Il y a 77 termes et 87 cliques
+<BR><BR><A NAME="syno"><B><I>Termes : </I></B></A><BR><BR>
+<FONT SIZE=+1><I>work_e</I></FONT> : anymore_e, apprentissage_f, carmen_e, carmen_f, chômeurs_f, collaborer_f, concert_f, concilier_f, consacrent_f, conservation_f, coopérer_f, decent_e, demandeurs_f, diable_f, diplômés_f, dirty_e, discouraged_e, dur_f, duration_e, efforcent_f, employees_e, estimant_f, excellent_f, experiments_e, familiales_f, fifteen_e, fonctionne_f, fonctionnent_f, fonctionner_f, fonctionné_f, formuler_f, foyer_f, graduates_e, guiding_e, heures_f, hours_e, icc_e, intéressants_f, know-how_e, lecteurs_f, longues_f, marcher_f, mari_f, mexicans_e, opèrent_f, partiel_f, permits_e, phelps_e, plate-forme_f, productif_f, professionnelle_f, readers_e, reinhart_e, reinhart_f, requise_f, rewarding_e, rigides_f, ruraux_f, réévaluer_f, salary_e, substances_f, synthetic_e, talented_e, théorique_f, travail_f, travaille_f, travaillent_f, travailler_f, travaux_f, travel_e, unemployed_e, vacances_f, vacation_e, versées_f, visas_f, week_e, workplace_e<BR><BR>
+<A NAME="cliques"><I><B>Cliques</B></I></A> :<BR><BR>
+1 : anymore_e, work_e
+<BR>
+2 : apprentissage_f, travail_f, work_e
+<BR>
+3 : carmen_e, work_e
+<BR>
+4 : carmen_f, work_e
+<BR>
+5 : chômeurs_f, employees_e, travail_f, work_e
+<BR>
+6 : chômeurs_f, employees_e, travailler_f, work_e
+<BR>
+7 : collaborer_f, work_e
+<BR>
+8 : concert_f, travailler_f, work_e
+<BR>
+9 : concilier_f, familiales_f, travail_f, work_e
+<BR>
+10 : consacrent_f, work_e
+<BR>
+11 : conservation_f, work_e
+<BR>
+12 : coopérer_f, work_e
+<BR>
+13 : decent_e, travail_f, work_e
+<BR>
+14 : demandeurs_f, travail_f, work_e
+<BR>
+15 : diable_f, work_e
+<BR>
+16 : diplômés_f, travail_f, work_e
+<BR>
+17 : diplômés_f, travailler_f, work_e
+<BR>
+18 : dirty_e, work_e
+<BR>
+19 : discouraged_e, travail_f, work_e
+<BR>
+20 : dur_f, employees_e, travaillent_f, travailler_f, work_e
+<BR>
+21 : duration_e, travail_f, work_e
+<BR>
+22 : efforcent_f, work_e
+<BR>
+23 : employees_e, heures_f, travail_f, work_e
+<BR>
+24 : employees_e, heures_f, travaillent_f, travailler_f, week_e, work_e
+<BR>
+25 : employees_e, hours_e, travail_f, work_e
+<BR>
+26 : employees_e, hours_e, travaillent_f, travailler_f, week_e, work_e
+<BR>
+27 : employees_e, travail_f, unemployed_e, work_e
+<BR>
+28 : employees_e, travaillent_f, travailler_f, unemployed_e, work_e
+<BR>
+29 : estimant_f, work_e
+<BR>
+30 : excellent_f, travail_f, work_e
+<BR>
+31 : experiments_e, work_e
+<BR>
+32 : fifteen_e, work_e
+<BR>
+33 : fonctionne_f, fonctionner_f, work_e
+<BR>
+34 : fonctionnent_f, work_e
+<BR>
+35 : fonctionné_f, work_e
+<BR>
+36 : formuler_f, work_e
+<BR>
+37 : foyer_f, travailler_f, work_e
+<BR>
+38 : graduates_e, travail_f, work_e
+<BR>
+39 : guiding_e, work_e
+<BR>
+40 : heures_f, longues_f, travail_f, vacances_f, work_e
+<BR>
+41 : heures_f, longues_f, travaillent_f, travailler_f, work_e
+<BR>
+42 : heures_f, longues_f, travaillent_f, vacances_f, work_e
+<BR>
+43 : heures_f, professionnelle_f, travail_f, work_e
+<BR>
+44 : heures_f, travail_f, vacation_e, work_e
+<BR>
+45 : heures_f, travaillent_f, vacances_f, week_e, work_e
+<BR>
+46 : heures_f, vacation_e, week_e, work_e
+<BR>
+47 : hours_e, longues_f, travail_f, vacances_f, work_e
+<BR>
+48 : hours_e, longues_f, travaillent_f, travailler_f, work_e
+<BR>
+49 : hours_e, longues_f, travaillent_f, vacances_f, work_e
+<BR>
+50 : hours_e, partiel_f, travail_f, work_e
+<BR>
+51 : hours_e, partiel_f, travailler_f, work_e
+<BR>
+52 : hours_e, professionnelle_f, travail_f, work_e
+<BR>
+53 : hours_e, travail_f, vacation_e, work_e
+<BR>
+54 : hours_e, travaillent_f, vacances_f, week_e, work_e
+<BR>
+55 : hours_e, vacation_e, week_e, work_e
+<BR>
+56 : icc_e, work_e
+<BR>
+57 : intéressants_f, work_e
+<BR>
+58 : know-how_e, work_e
+<BR>
+59 : lecteurs_f, work_e
+<BR>
+60 : marcher_f, work_e
+<BR>
+61 : mari_f, travailler_f, work_e
+<BR>
+62 : mexicans_e, work_e
+<BR>
+63 : opèrent_f, work_e
+<BR>
+64 : permits_e, travail_f, work_e
+<BR>
+65 : phelps_e, travaux_f, work_e
+<BR>
+66 : plate-forme_f, work_e
+<BR>
+67 : productif_f, travail_f, work_e
+<BR>
+68 : readers_e, work_e
+<BR>
+69 : reinhart_e, work_e
+<BR>
+70 : reinhart_f, work_e
+<BR>
+71 : requise_f, work_e
+<BR>
+72 : rewarding_e, travail_f, work_e
+<BR>
+73 : rigides_f, travail_f, work_e
+<BR>
+74 : ruraux_f, work_e
+<BR>
+75 : réévaluer_f, work_e
+<BR>
+76 : salary_e, travail_f, work_e
+<BR>
+77 : substances_f, work_e
+<BR>
+78 : synthetic_e, work_e
+<BR>
+79 : talented_e, work_e
+<BR>
+80 : théorique_f, work_e
+<BR>
+81 : travail_f, versées_f, work_e
+<BR>
+82 : travail_f, visas_f, work_e
+<BR>
+83 : travail_f, work_e, workplace_e
+<BR>
+84 : travaille_f, work_e
+<BR>
+85 : travailler_f, travel_e, work_e
+<BR>
+86 : travailler_f, work_e, workplace_e
+<BR>
+87 : travel_e, vacances_f, work_e
