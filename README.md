@@ -2,14 +2,15 @@
 
 Parts of the codes for bilingual co-occurrence graph constructions are from the following paper:
 
-Rui Wang, Hai Zhao, Sabine Ploux, Bao-Liang Lu, and Masao Utiyama. 2016. "A Bilingual Graph-based Semantic Model for Statistical Machine Translation". IJCAI.
+Rui Wang, Hai Zhao, Sabine Ploux, Bao-Liang Lu, and Masao Utiyama. 2016. "A Bilingual Graph-based Semantic Model for Statistical Machine Translation". IJCAI-2016.
 
-Graph-based Bilingual Word Embedding for Statistical Machine Translation
-Rui Wang, Hai Zhao*, Sabine Ploux*, Bao-Liang Lu, Masao Utiyama, and Eiichro Sumita,
-ACM Transactions on Asian and Low-Resource Language Information Processing (TALLIP), accepted, 2018
+
+Rui Wang, Hai Zhao*, Sabine Ploux*, Bao-Liang Lu, Masao Utiyama, and Eiichro Sumita, "Graph-based Bilingual Word Embedding for Statistical Machine Translation". ACM Transactions on Asian and Low-Resource Language Information Processing (TALLIP), accepted, 2018
  
 Parts of the codes for clique extraction and dimension reduction are from the following two papers:
+
 Sabine Ploux and Hyungsuk Ji. 2003. "A model for matching semantic maps between languages (French/English, English/French)". Computational Linguistics.
+
 Hyungsuk Ji, Sabine Ploux and Eric Wehrli. 2003. "Lexical knowledge representation with contexonyms". MT summit.
 
 
