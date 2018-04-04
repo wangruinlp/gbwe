@@ -10,7 +10,8 @@ ACM Transactions on Asian and Low-Resource Language Information Processing (TALL
 Parts of the codes for clique extraction and dimension reduction are from the following two papers:
 Sabine Ploux and Hyungsuk Ji. 2003. "A model for matching semantic maps between languages (French/English, English/French)". Computational Linguistics.
 Hyungsuk Ji, Sabine Ploux and Eric Wehrli. 2003. "Lexical knowledge representation with contexonyms". MT summit.
-------------------------------------------------------
+
+
 Corpus preparation:
 For monolingual embedding, the corpus is just the raw monolingual corpus. Such as:
 "le th¨¨me du bonheur devient ¨¤ la mode parmi les chercheurs ."
