@@ -18,11 +18,11 @@ Corpus preparation:
 
 For monolingual embedding, the corpus is just the raw monolingual corpus. Such as:
 
-"le th¨¨me du bonheur devient ¨¤ la mode parmi les chercheurs ."
+"le thème du bonheur devient à la mode parmi les chercheurs ."
 
 For bilingual embedding, the corpus is a combination of a foreign sentence and a target sentence. Such as:
 
-"le th¨¨me du bonheur devient ¨¤ la mode parmi les chercheurs . there is a huge wave of interest in happiness , among researchers ."
+"le thème du bonheur devient à la mode parmi les chercheurs . there is a huge wave of interest in happiness , among researchers ."
 
 There are some perl files for PMI based graph constructions.
 
