@@ -1,0 +1,1 @@
+#define BG_IMAGE BG_IMAGE_EN

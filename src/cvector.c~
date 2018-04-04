@@ -1,0 +1,12 @@
+#include <stddef.h>
+#define NR_END 1
+#define FREE_ARG char*
+char *
+cvector(int nl, int nh)
+/* allocate a char vector with subscript range v[nl..nh] */
+{
+        char *v;
+        v=( char *)malloc((size_t) ((nh-nl+1+NR_END)*sizeof(char)));
+        if (!v) exit(1);//error("allocation failure in cvector()");
+        return v-nl+NR_END;
+}

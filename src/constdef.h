@@ -1,0 +1,4 @@
+#define MAX_LINE_LEN 6792
+#define MAX_WORD_LEN 67
+#define MAX_WORDHREF_LEN 256
+#define MAX_CLIQUES 2000

@@ -1,0 +1,47 @@
+#define MAX_NUM_REQ 500
+#define HACKER_NUM 0000000000
+//#define MAX_NUM_REQ_DOMAINE 20000
+//#define MAX_NUM_REQ_SERVEUR 40000
+#define MAX_TERME 300      // nombre maximum de termes dans une requete
+#define ALLOWED_TIME 10 // MAX_TIME_TABLE (100)reqs within ALLOWED_TIME seconds is not allowed
+#define WARNING_TIME 10 // 10 reqs within 10 seconds: warning
+#define MAX_TIME_TABLE 20 //check every 10reqs
+
+#define ID_trusted 2
+#define ID_ok 1
+#define ID_ko -1
+#define ID_ko_num_req -2
+#define ID_ko_num_req_serveur -3
+#define ID_ko_num_req_domaine -4
+#define ID_ko_special -5
+#define ID_ko_misc -6
+#define ID_CRACKER -7
+
+#define  REQ_ok 1
+#define  REQ_ko -1
+#define  REQ_ko_num_termes -2
+#define  REQ_ko_empty -3
+#define  REQ_ko_illegal -4
+
+//#define	 MAX_ip_long 15
+#define	 MAX_ip_len 15
+//#define	 MAX_query_long 1023
+#define	 MAX_query_len 8192
+//#define	 MAX_query_len 1023
+
+/* VARIABLES GLOBALES */
+extern int total_req;
+extern int total_req_serveur;
+extern int id_status;
+extern int req_status;
+extern char vedettes[MAX_query_len+1];
+extern char Erm[];  // message d'erreur pour page HTML
+
+//int vcheckid(const char *);
+int vcheckid();
+char * get_fcompt_name(char *);
+void write_log(const char *,char *);
+
+
+
+

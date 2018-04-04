@@ -1,0 +1,8 @@
+static const char DEGREE[2]={-8,0};
+static const char DEGREEC[3]={-8,'C',0};
+static const char SEPARATOR[]={'\t',':','\t','\0'};
+static const char PERIODS[]={'.','!','?','\0'};
+static const char *WORDS_POINT[] = {"Mr", "Mrs","#"};
+static const char TOKENIZERS[]={' ', '=',',','\t', '(', ')', '<','>','[',']',':', ';', '|','\\','/','\n', 13,'*', '\"','.','!','?',146,147,148,-8,-2,'\0'};
+static const char *OTER[]={"ôta","ôtaient","ôtais","ôtait","ôtant","ôtas","ôtasse","ôtasses","ôtassiez","ôtassions","ôte","ôtent","ôter","ôtera","ôterai","ôteraient","ôterais","ôterait","ôteras","ôterez","ôteriez","ôterions","ôterons","ôteront","ôtes","ôtez","ôtiez","ôtions","ôtons","ôtâmes","ôtât","ôtâtes","ôtèrent","ôté","ôtée","ôtées","ôtés","#"};
+

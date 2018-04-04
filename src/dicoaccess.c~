@@ -1,0 +1,294 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+//#include <sys/time.h>
+#include <time.h>
+#include <sys/time.h>
+#include "../commun/dicofile.h"
+#include "../commun/dicoaccess.h"
+#include "../commun/utils.h"
+#include "../commun/URL.h"
+
+
+/* DEBUG */
+//#define ICI printf("%d\n",__LINE__);
+
+
+/* GLOBALES */
+int total_req=0;
+//int total_req_serveur=0;
+int id_status=ID_ok;
+int req_status=REQ_ok;
+char vedettes[MAX_query_len+1];
+char Erm[512];  // message d'erreur pour page HTML
+char *EMPTY="***";
+
+int
+isCracker(const char *ip)
+{
+	char str[256];
+	FILE *fp;
+        sprintf(str,"%scracker_list",Controldir);
+	fp=fopen(str,"r");
+	while(fgetline(str,256,fp)>=0)
+	{
+		if(isEqual(ip,str))
+		{
+			fclose(fp);
+			return true;
+		}
+	}
+	fclose(fp);
+	return false;
+}
+
+int vcheckid()
+{
+        FILE *f,*f_remote;   //fichier temporaire
+        char str[512];  //chaîne temporaire
+        char* remote_id;
+        char controle[MAX_ip_len+1];
+        int i, len, first;
+int i2;
+char controle2[MAX_query_len+1];
+	int n=0;
+	unsigned long time_table[MAX_TIME_TABLE];
+	char str2[256];
+	char line[512];
+	char **words0;
+	int begin,end;
+	unsigned long ncontrol=0;
+
+        //special=0;
+        total_req=0;
+        remote_id=getenv("REMOTE_ADDR");
+        if (remote_id==NULL)
+        {
+            strcpy(Erm,"RA001");
+            return ID_ko_misc;
+        }
+	if(isCracker(remote_id))
+		return ID_CRACKER;
+        len=strlen(remote_id);
+        if (len>MAX_ip_len) len=MAX_ip_len;   // soyons parano
+        first = 0;
+        for (i=0; i<len; i++)
+        {
+            if (remote_id[i]=='.') first++;
+            if (first==3) break;
+        }
+        strncpy(controle, remote_id, len);
+        controle[i] = 0;
+// special
+first = 0;
+for (i2=0; i2<len; i2++)
+{
+   if (remote_id[i2]=='.') first++;
+   if (first==2) break;
+}
+strncpy(controle2, remote_id, len);
+controle2[i2] = 0;
+// special
+        sprintf(str,"%strusted",Controldir);
+        //if ((f=fopen(str,"r+b"))==NULL)
+        if ((f=fopen(str,"r+b"))==NULL)
+        {
+            strcpy(Erm,"T001");
+            return ID_ko_misc;
+        }
+
+        while (fgetline(str,512,f)>0)
+        {
+                if (!strcmp(str,remote_id))
+                {
+                        //fclose(f);
+                        fclose(f);
+                        return ID_trusted;
+                }
+        }
+        //fclose(f);
+        fclose(f);
+
+        sprintf(str,"%sremote",Controldir);
+        //if ((f_remote=fopen(str,"r"))==NULL)
+        if ((f_remote=fopen(str,"r"))==NULL)
+        {
+            strcpy(Erm,"T002");
+            return ID_ko_misc;
+        }
+
+	n=0;
+	words0=cmatrix(0,2,0,255);
+	begin=0;
+	end=0;
+	fseek(f_remote,0,SEEK_SET);
+        while (fgetline(line,512,f_remote)>0)
+        {
+		toTokens(words0,line,'\t',3);
+                if (!strcmp(words0[0],remote_id))
+		{
+                        total_req++;
+			if(total_req>=MAX_NUM_REQ)
+				break;
+			ncontrol=atol(words0[2]);
+			if(ncontrol==9999999999)
+			{
+                        	total_req=MAX_NUM_REQ;
+				break;
+			}
+			time_table[end++]=ncontrol;
+			begin++;
+			n++;
+			if(end> MAX_TIME_TABLE-1)
+			{
+				end=0;
+				begin=1;
+			}
+		}
+        }
+
+        //fclose(f_remote);
+        fclose(f_remote);
+	free_cmatrix(words0,0,2,0,255);
+        if (total_req>=MAX_NUM_REQ)
+                return ID_ko_num_req;
+	//if(n-MAX_TIME_TABLE>0 && time_table[end-1]-time_table[begin-1] < ALLOWED_TIME)
+	if(total_req-MAX_TIME_TABLE>0 && time_table[end-1]-time_table[begin-1] < ALLOWED_TIME)
+	{
+       		sprintf(str2,"%sremote",Controldir);
+       		//if ((f_remote=fopen(str2,"a+"))!=NULL)
+       		if ((f_remote=fopen(str2,"a+"))!=NULL)
+		{
+                       //fprintf(f_remote,"%s %d 9999999999\n",remote_id,100);
+                       fprintf(f_remote,"%s\t%d\t9999999999\n",remote_id,MAX_NUM_REQ );
+		}
+        	//fclose(f_remote);
+        	fclose(f_remote);
+                return ID_ko_num_req;
+	}
+
+        if (total_req>=MAX_NUM_REQ)
+                return ID_ko_num_req;
+        return ID_ok;
+}
+
+char *
+get_fcompt_name(char *oname)
+{
+	/*
+        FILE* fcomp;
+        int filenum;
+        int c;
+        int i;
+
+        sprintf(str,"%scompteur",Controldir);
+        filenum=0;
+        while ((fcomp=fopen(str,"r+b"))==NULL)
+		;
+        if((fcomp=fopen(str,"r+b"))==NULL)
+		return NULL;
+        fseek(fcomp,0,0);
+        for (i=0;i<8;i++)
+        {
+                c=fgetc(fcomp);
+                if (c>'9') c=c-'A'+10; else c=c-'0'; //transformation d'un caractère hexa en nombre décimal
+                filenum=filenum*16+c;
+        }
+        filenum+=1;
+        fseek(fcomp,0,0);
+        fprintf(fcomp,"%08X",filenum);
+        fclose(fcomp);
+	*/
+
+        time_t tim;
+        struct tm *ttim;
+        char str[512];
+        char str2[512];
+        struct timespec thistime;
+
+        tim=time(NULL);
+        ttim=localtime(&tim);
+	clock_gettime(CLOCK_REALTIME,&thistime);
+        sprintf(oname,"%2.2d%2.2d%2.2d%2.2d_%u_%u",((*ttim).tm_year % 100),((*ttim).tm_mon+1),(*ttim).tm_mday,(*ttim).tm_hour,thistime.tv_sec,thistime.tv_nsec);
+
+	/*
+	astrcpy(str2,vedettes);
+	strlcpy(str,str2,128);
+	strcat(oname,str);
+	*/
+       return oname;
+
+	
+}
+
+void write_log(const char *controldir, char *query)
+{
+       char *str,*referrer;
+       char str2[512];
+       FILE *f_log,*f_remote;
+       time_t tim;
+       //struct tm thistm;
+       struct timespec thistime;
+       //long tm_gmtoff;
+
+       sprintf(str2,"%sremote",Controldir);
+       if ((f_remote=fopen(str2,"a+"))!=NULL)
+       {
+               str=getenv("REMOTE_ADDR");
+               if (id_status != ID_trusted)
+               {
+                       if (str==NULL) str=EMPTY;
+		       clock_gettime(CLOCK_REALTIME,&thistime);
+                       fprintf(f_remote,"%s\t%d\t%u\n",str,total_req,thistime.tv_sec);
+		       //thistm=*localtime(&thistm);
+                       //fprintf(f_remote,"%s\t%d\t%u\n",str,total_req,thistm.tm_gmtoff);
+                       //fprintf(f_remote,"%d\t%d\n",total_req,total_req_serveur);
+               }
+               fclose(f_remote);
+        }
+       sprintf(str2,"%slog",Controldir);
+       if ((f_log=fopen(str2,"a+"))!=NULL)
+       {
+              tim=time(NULL);
+              strftime(str2, sizeof(str2), "%a %x %X",localtime( &tim));
+              fprintf(f_log,"%s \t", str2);
+              fprintf(f_log,"(%s) \t", str);
+	      referrer=getenv("HTTP_REFERER");
+              if (referrer && strlen(referrer)>7)   // supprime http://
+              {
+                  char *ps,*pd;
+
+                  pd=str2;
+                  ps=referrer+7;
+                  while (ps[0]!=0)
+                  {
+                      *pd=*ps;
+                      if (*pd=='+')
+                        *pd=' ';
+                      if (*pd=='%')
+                      {
+                          int i;
+                          char tmpstr[6];
+                          //conversion de %xx en le caractère correspondant
+                          tmpstr[0]=ps[1]; tmpstr[1]=ps[2]; tmpstr[2]=0;
+                          sscanf(tmpstr,"%x",&i);
+                          *pd=(char)i;
+                          ps+=2;
+                      }
+                      pd++;
+                      ps++;
+                 }
+                 *pd=0;
+              }
+              else
+                  strcpy(str2,EMPTY);
+              str=getenv("REMOTE_HOST");
+              if (str==NULL) str=EMPTY;
+              fprintf(f_log,"%s \t%s \t%s \t%d.%d.%d\n",str,str2,query,id_status,req_status,total_req);
+              fclose(f_log);
+       }
+}
+
+
+
+

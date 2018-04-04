@@ -1,0 +1,2 @@
+FILE *dicofopen(char *,char *);
+void dicofclose(FILE *);
